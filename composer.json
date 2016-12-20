@@ -1,0 +1,29 @@
+{
+    "name": "jankal/lencrypt",
+    "description": "PHP connector for the ACME API by Let's Encrypt",
+    "license": "GPL-3.0",
+    "minimum-stability": "beta",
+    "authors": [
+        {
+            "name": "Alexander Jank",
+            "email": "himself@alexanderjank.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "jankal\\Lencrypt\\": "src/"
+        }
+    },
+    "require": {
+        "acmephp/core": "dev-master",
+        "nesbot/carbon": "^1.21",
+        "php-ds/php-ds": "^1.1",
+        "symfony/filesystem": "^3.2",
+        "symfony/finder": "^3.2",
+        "vlucas/phpdotenv": "^2.4",
+        "symfony/process": "^3.2",
+        "mjanser/systemctl": "dev-master",
+        "phpseclib/phpseclib": "^2.0",
+        "spatie/string": "^2.2"
+    }
+}
