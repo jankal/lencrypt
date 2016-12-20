@@ -1,0 +1,9 @@
+vendor/
+.env
+composer.lock
+certs/*
+!certs/.gitkeep
+files/*
+!files/.gitkeep
+renew/*
+!renew/.gitkeep
