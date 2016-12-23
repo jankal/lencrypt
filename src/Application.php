@@ -86,4 +86,46 @@ class Application {
         }
         return $v;
     }
+
+    /**
+     * @param $pem
+     * @return string
+     */
+    public static function PEMtoDER($pem): string {
+        $lines = explode("\n", trim($pem));
+        unset($lines[count($lines)-1]);
+        unset($lines[0]);
+        $result = implode('', $lines);
+        $result = base64_decode($result);
+
+        return $result;
+    }
+
+    /**
+     * @return Vector
+     */
+    public static function getRenewKeys(): Vector {
+        $finder = new Finder();
+        $finder->files()->in(getenv('RENEW_DIR'));
+        $info = new KeyInfo($finder);
+        $keys = $info->findAll();
+        return $keys;
+    }
+
+    /**
+     * @param $der
+     * @param bool $private
+     * @return string
+     */
+    public static function DERtoPEM($der, $private = false): string {
+        $der = base64_encode($der);
+        $lines = str_split($der, 65);
+        $body = implode("\n", $lines);
+        $title = $private ? 'RSA PRIVATE KEY' : 'PUBLIC KEY';
+        $result = "-----BEGIN {$title}-----\n";
+        $result .= $body . "\n";
+        $result .= "-----END {$title}-----\n";
+
+        return $result;
+    }
 }

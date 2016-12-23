@@ -50,7 +50,7 @@ class KeyInfo {
             $meta = new Metadata($fileName);
             $rawKey = new \AcmePhp\Ssl\PrivateKey($meta->getContents());
             $parsedKey = $parser->parse($rawKey);
-            $dataCollection->push([$parsedKey, $fileName]);
+            $dataCollection->push([$parsedKey, $rawKey, $fileName]);
         }
         return $dataCollection;
     }
