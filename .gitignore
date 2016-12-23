@@ -7,3 +7,4 @@ files/*
 !files/.gitkeep
 renew/*
 !renew/.gitkeep
+.idea/
